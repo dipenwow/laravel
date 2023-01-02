@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\storerequest;
 
 class PostController extends Controller
 {  
@@ -19,26 +20,26 @@ class PostController extends Controller
     
     /*create a new post 
     */
-    public function store(Request $request)
+    public function store(storerequest $request)
     {  
-        $request->validate([
-            'title' =>'required',
-            'excerpt' =>'required',
-            'body' =>'required'
-        ]);
+
+        //custom validation for store
+       /**
+        *  $request->validate([
+            'title' =>'required|max:40',
+            'excerpt' =>'required|max:40|alpha',
+            'body' =>'required|max:300',
+        ],['title.required' =>'Title is a mandatory parameter','excerpt.required' =>'Author name is a mandatory parameter','excerpt.max' =>'Author name cannot be more than 40','excerpt.alpha' =>'Author name cannot be numeric']);
+        
+        */
+        $validatedData = $request->validated();   
+
         $post = new Post;
         $post->title = $request->title; 
         $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
+        $post->body = $request->body;   
         
-        /**  if($request->hasfile('image'))
-        {
-         $image = $request->file('image');
-         $extension = $image->getOriginalExtension();
-         $filename = time() . '/' . $extension;
-         $file->move('uploads/product',$filename );
-         $post->image = $filename;
-        }*/
+        /** */
        
         $post->save();
        // Post::create($request->all());
@@ -60,9 +61,17 @@ class PostController extends Controller
         return view('edit',['post'=>$post]);
     }
 
-    public function update(Request $request,$id)
-        {
-            
+    public function update(storerequest $request,$id)
+        {    
+            //Validation in controller
+            /** $request->validate([
+            'title' =>'required|max:40',
+            'excerpt' =>'required|max:40|alpha',
+            'body' =>'required|max:300',
+        ],['title.required' =>'Title is a mandatory parameter','excerpt.required' =>'Author name is a mandatory parameter','excerpt.max' =>'Author name cannot be more than 40','excerpt.alpha' =>'Author name cannot be numeric']);
+         */
+        $validatedData = $request->validated();   
+
             $post=Post::findorfail($id);
             $post->title = $request->get('title');
             $post->excerpt = $request->get('excerpt');

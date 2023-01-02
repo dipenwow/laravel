@@ -24,20 +24,25 @@
  @csrf     
           <div class="form-group">      
               <label for="Id">Id:</label><br/><br/>  
-              <input type="number" name="Id" value={{$post->id}}><br/><br/>  
+              <input type="number" name="Id" value={{$post->id}}><br/>
+              
+              <br/>  
           
   
       
               <label for="Title">Title</label><br/><br/>  
-              <input type="text" class="form-control" name="title" value={{$post->title}}><br/><br/>  
+              <input type="text" class="form-control" name="title" value={{$post->title}}>
+              <span style="color:red">@error('title'){{$message}}@enderror</span><br>
+              <br/>  
            
       
-              <label for="excerpt">Excerpt:</label><br/><br/>  
-              <input type="text" class="form-control" name="excerpt" value={{$post->excerpt}}><br/><br/>  
-           
+              <label for="excerpt">Author</label><br/><br/>  
+              <input type="text" class="form-control" name="excerpt" value={{$post->excerpt}}>
+              <span style="color:red">@error('excerpt'){{$message}}@enderror</span><br>
       
               <label for="Body">Body</label><br/><br/>  
-              <input type="text" class="form-control" name="body" value={{$post->body}}><br/><br/>  
+              <input type="text" class="form-control" name="body" value={{$post->body}}>
+              <span style="color:red">@error('body'){{$message}}@enderror</span><br>  
            
 <br/>  
   

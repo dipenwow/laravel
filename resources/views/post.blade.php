@@ -48,7 +48,7 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
-            <th>Excerpt</th>
+            <th>Author</th>
             <th>Body</th>
             <th>Images</th>
             <th>Action</th>

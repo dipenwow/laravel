@@ -26,10 +26,13 @@
    
     <label>Title</label><br>
     <input type="text" name="title"  /><br>
-    <label>excerpt</label><br>
+    <span style="color:red">@error('title'){{$message}}@enderror</span><br>
+    <label>Author</label><br>
     <input type="text" name="excerpt" /><br>
+    <span style="color:red">@error('excerpt'){{$message}}@enderror</span><br>
     <label>Body</label><br>
-    <textarea class="form-control" name="body"></textarea><br>
+    <textarea class="form-control" name="body" ></textarea><br>
+    <span style="color:red">@error('body'){{$message}}@enderror</span><br>
     <label >Image</label><br>
     <input type="file" name="image" /><br>
     <br><input type="submit" class="btn btn-primary" value="Create Post" />
