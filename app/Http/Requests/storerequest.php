@@ -30,4 +30,5 @@ class storerequest extends FormRequest
             'body' =>'required|max:300',
         ];
     }
+    
 }
