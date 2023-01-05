@@ -33,8 +33,10 @@ class CustomController extends Controller
         $validateData = $request->validated();
         $credintials = $request->only('email', 'password');
         if (Auth::attempt($credintials))
-        {
-            return redirect()->intended('custom/dashboard')->withSuccess('success','Logged in successfully');
+        {   // $data = findorfail($id);
+            
+            return redirect()->intended('dashboard');
+            //return redirect()->intended('custom/dashboard')->withSuccess('success','Logged in successfully');
         }
             return redirect("custom/login")->withSuccess('Invalid Credintials');
 
@@ -75,7 +77,7 @@ class CustomController extends Controller
    public function dashboard()
    {    
        if(Auth::check()){
-           return view('custom/dashboard');
+           return view('admin');
            
        }
  

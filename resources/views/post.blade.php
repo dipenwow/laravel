@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.layout')
 
+   @section('content')
 
          
        <center>
@@ -62,7 +53,7 @@
             <td>images</td>
             <td>
                 <div style="display:flex;flex-direction:row; ">
-                <a class="btn btn-primary" style="margin:0 5px;" href="/post/edit/{{ $post['id']}}">Edit</a>
+                <a class="btn btn-primary" style="margin:0 5px;" href="edit/{{ $post['id']}}">Edit</a>
               
               <form action="{{route('destroy',$post->id)}}" method="POST">
               @csrf    
@@ -88,7 +79,5 @@
    </center>
     
     
- 
+ @endsection
     
-</body>
-</html>

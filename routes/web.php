@@ -30,20 +30,20 @@ Route::get('/db', function () {
  
 
 
-   //display
-Route::get('/post',[PostController::class,'show']);
-//Route::get('/post/create',[PostController::class,'show'])->name('post');
+   //display for crud
+// Route::get('/post',[PostController::class,'show']);
+// //Route::get('/post/create',[PostController::class,'show'])->name('post');
 
-//create
-Route::view('home/create','create');
-Route::post('store',[PostController::class,'store']);
-//Delete
-Route::delete('post/{id}',[PostController::class,'destroy'])->name('destroy');
+// //create
+// Route::view('create','create');
+// Route::post('store',[PostController::class,'store']);
+// //Delete
+// Route::delete('post/{id}',[PostController::class,'destroy'])->name('destroy');
 
-//Edit
-Route::get('post/edit/{id}',[PostController::class,'edit'])->name('edit');
+// //Edit
+// Route::get('edit/{id}',[PostController::class,'edit'])->name('edit');
 
-Route::PATCH('post/update/{id}',[PostController::class,'update'])->name('update');
+// Route::PATCH('post/update/{id}',[PostController::class,'update'])->name('update');
 
 
 
@@ -65,8 +65,37 @@ Route::post('login',[CustomController::class, 'postLogin']);
 Route::get('registration',[CustomController::class, 'registration']);
 Route::post('custom-Registration',[CustomController::class, 'postRegister']);
 
-Route::get('custom/dashboard',[CustomController::class, 'dashboard']);
+//Route::get('dashboard',[CustomController::class, 'dashboard']);
 //Route::view('login','custom/login');
 //Route::view('register','custom/register');
 Route::get('logout', [CustomController::class, 'logout']);
+
+
+
+
+//Admin Lte Dashboard
+
+//Route::view('dashboard','admin');
+Route::get('dashboard',[CustomController::class, 'dashboard']);
+
+
+Route::group(['middleware'=>'auth'],function(){
+//display
+Route::get('/post',[PostController::class,'show']);
+//Route::get('/post/create',[PostController::class,'show'])->name('post');
+
+//create
+Route::view('create','create');
+Route::post('store',[PostController::class,'store']);
+//Delete
+Route::delete('post/{id}',[PostController::class,'destroy'])->name('destroy');
+
+//Edit
+Route::get('edit/{id}',[PostController::class,'edit'])->name('edit');
+
+Route::PATCH('post/update/{id}',[PostController::class,'update'])->name('update');
+
+
+
+});
 
