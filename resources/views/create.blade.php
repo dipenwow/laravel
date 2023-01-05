@@ -16,8 +16,7 @@
     <input type="text" name="excerpt" /><br>
     <label>Body</label><br>
     <textarea class="form-control" name="body"></textarea><br>
-    <label >Image</label><br>
-    <input type="file" name="image" /><br>
+    
     <br><input type="submit" class="btn btn-primary" value="Create Post" />
     
 </form>

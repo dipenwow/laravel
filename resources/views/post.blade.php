@@ -41,7 +41,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Body</th>
-            <th>Images</th>
+            
             <th>Action</th>
         </tr>
             @foreach($posts as $post)
@@ -50,7 +50,7 @@
             <td>{{$post['title']}}</td>
             <td>{{$post['excerpt']}}</td>
             <td>{{$post['body']}}</td>
-            <td>images</td>
+            
             <td>
                 <div style="display:flex;flex-direction:row; ">
                 <a class="btn btn-primary" style="margin:0 5px;" href="edit/{{ $post['id']}}">Edit</a>

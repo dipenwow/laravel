@@ -60,7 +60,7 @@ class CustomController extends Controller
     $data = $request->all();
     $check = $this->create($data);
 
-    return redirect("custom/dashboard")->withSuccess('Great! You have Successfully loggedin');
+    return redirect("custom/login")->withSuccess('Great! You have Successfully loggedin');
     }
 
     public function create(array $data)

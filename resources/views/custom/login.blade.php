@@ -20,6 +20,7 @@
                                   @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
+                                  <span>@error('email'){{$message}}@enderror</span>
                               </div>
                           </div>
   
@@ -30,6 +31,7 @@
                                   @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
                                   @endif
+                                  <span>@error('password'){{$message}}@enderror</span>
                               </div>
                           </div>
   

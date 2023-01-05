@@ -60,9 +60,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //custom authentication routes
 
-Route::get('custom/login',[CustomController::class, 'index']);
+Route::get('custom/login',[CustomController::class, 'index'])->name('custom/login');
 Route::post('login',[CustomController::class, 'postLogin']);
-Route::get('registration',[CustomController::class, 'registration']);
+Route::get('registration',[CustomController::class, 'registration'])->name('registration');
 Route::post('custom-Registration',[CustomController::class, 'postRegister']);
 
 //Route::get('dashboard',[CustomController::class, 'dashboard']);
@@ -76,13 +76,16 @@ Route::get('logout', [CustomController::class, 'logout']);
 //Admin Lte Dashboard
 
 //Route::view('dashboard','admin');
-Route::get('dashboard',[CustomController::class, 'dashboard']);
+Route::get('dashboard',[CustomController::class, 'dashboard'])->name('dashboard');
 
 
+//authentication checking for admin lte
 Route::group(['middleware'=>'auth'],function(){
 //display
 Route::get('/post',[PostController::class,'show']);
 //Route::get('/post/create',[PostController::class,'show'])->name('post');
+
+
 
 //create
 Route::view('create','create');
